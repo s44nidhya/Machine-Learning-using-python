@@ -7,7 +7,7 @@ from datetime import datetime
 # Directory to store known face encodings and names
 known_faces_dir = "known_faces"
 
-# Create the directory if it doesn't exist
+# Creating the directory in case it doesn't exist
 if not os.path.exists(known_faces_dir):
     os.makedirs(known_faces_dir)
 
@@ -15,7 +15,7 @@ if not os.path.exists(known_faces_dir):
 known_face_encodings = []
 known_face_names = []
 
-# Load known faces from the directory
+# Loading known faces from the directory
 def load_known_faces():
     for filename in os.listdir(known_faces_dir):
         if filename.endswith(".jpg") or filename.endswith(".png"):
@@ -25,7 +25,7 @@ def load_known_faces():
             known_face_encodings.append(encoding)
             known_face_names.append(name)
 
-# Function to register a new face
+# Function inorder to register a new face
 def register_new_face(name):
     print(f"Please face the camera for enrollment, {name}!")
     video_capture = cv2.VideoCapture(0)
@@ -49,7 +49,7 @@ def register_new_face(name):
     video_capture.release()
     cv2.destroyAllWindows()
 
-# Function to authenticate a person
+# Function inorder to authenticate a person
 def authenticate_person():
     print("Looking for a face to authenticate...")
     video_capture = cv2.VideoCapture(0)
@@ -91,7 +91,7 @@ def authenticate_person():
     cv2.destroyAllWindows()
 
 if __name__ == "__main__":
-    # Load known faces
+    # Loading known faces
     load_known_faces()
 
     action = input("Do you want to (r)egister a new face or (a)uthenticate? ")
